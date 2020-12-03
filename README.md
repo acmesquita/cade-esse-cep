@@ -1,19 +1,34 @@
-# PocCadeEsseCep
+# Cade esse CEP?
 
-To start your Phoenix server:
+Sistema para buscar, através de um CEP válido, o endereço e um mapa de como chegar
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+### Requisitos
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+**Não Funcionais**
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+- [ ]  A fonte de dados deve vir da [Brasil API](https://github.com/BrasilAPI/BrasilAPI)
+- [ ]  Utilizar o OpenStreetMap como base para o mapa
+    - [ ]  Exemplo de consulta [link](https://www.openstreetmap.org/search?query=Rua%20Doutor%20Area%20Le%C3%A3o%2C%20Nossa%20Senhora%20das%20Gra%C3%A7as%2C%20Teresina%2C%20Piau%C3%AD#map=18/-5.10163/-42.80288)
+- [x]  O Projeto deve ser feito com Elixir e Phoenix
 
-## Learn more
+**Funcionais**
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+- [x]  O usuário deve poder digitar um CEP na caixa de texto
+- [ ]  O usuário deve receber um alerta caso exista algum erro na busca
+- [ ]  O usuário deve ser direcionado para a tela de informações caso tenha encontrado o endereço
+- [ ]  Deve ser exibido um mapa para o usuário com a localização encontrada
+- [ ]  Deve ser mostrado ao usuário o endereço encontrado segundo o protótipo
+
+### Instalação do projeto
+
+  Após o clone do projeto, certifique que o `Elixir` está instaldo corretamente na sua máquina, e também o `Phoenix`.
+
+  > Caso não tenha o Elixir e o Phoenix instalados, siga essa [documentação](https://hexdocs.pm/phoenix/installation.html#content)
+
+  Ambiente configurado, siga os passos:
+
+  1. Instalar as dependências: `mix deps.get`
+  2. Instalar as dependências do Node: `npm install` dentro do diretório `assets`
+  3. Iniciar o servidor: `mix phx.server`
+
+Agora visite [`localhost:4000`](http://localhost:4000) no seu navegador.
