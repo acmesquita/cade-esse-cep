@@ -6,9 +6,11 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, main {
   font-family: 'Montserrat', sans-serif;
   color: var(--primary);
+  width: 100vw;
+  height: 100vh;
 }
 
 h1 {

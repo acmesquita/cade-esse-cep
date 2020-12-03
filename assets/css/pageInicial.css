@@ -1,0 +1,61 @@
+div.page_inicial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+div.page_inicial .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 130px 70px 0px;
+}
+
+div.page_inicial .header .title{
+  max-width: 659px;
+}
+
+div.page_inicial img{
+  max-width: min(100%, 85vw);
+  max-height: 70vw;
+  margin: 0 auto;
+}
+
+div.page_inicial form{
+  display: flex;
+  align-items: center;
+}
+
+div.page_inicial input{
+  background: #EBF2FA;
+  border-radius: 15px;
+  padding: 26px;
+  border: none;
+  max-width: 500px;
+  margin-right: 30px;
+  outline: none;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+
+  color: var(--blue);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--lightblue);
+  opacity: 1; /* Firefox */
+}
+
+div.page_inicial button {
+  background: var(--secondary);
+  border-radius: 15px;
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

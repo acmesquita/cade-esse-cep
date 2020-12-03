@@ -1,13 +1,19 @@
-<div class="header">
-  <section class="title">
-    <h1>Cadê esse CEP?</h1>
-    <h3>Digite o CEP que está buscando e descubra o Brasil.</h3>
-  </section>
-  
-  <section class="form">
-    <%= form_for @conn, Routes.page_path(@conn, :show), [as: :page], fn f -> %>
-      <%= text_input f, :zip %>
-      <%= submit "Search" %>
-    <% end %>
-  </section>
+<div class="page_inicial">
+  <div class="header">
+    <section class="title">
+      <h1>Cadê esse CEP?</h1>
+      <h3>Digite o CEP que está buscando e descubra o Brasil.</h3>
+    </section>
+    
+    <section class="form">
+      <%= form_for @conn, Routes.page_path(@conn, :show), [as: :page], fn f -> %>
+        <%= text_input f, :zip, placeholder: "01000-000" %>
+        <%= submit do %>
+          <img src="<%= Routes.static_path(@conn, "/images/right-arrow.svg") %>" alt="Seta para a direita"/>
+        <% end %>
+      <% end %>
+    </section>
+  </div>
+
+  <img src="<%= Routes.static_path(@conn, "/images/backgroundImage.png") %>" alt="Logo do Cadê esse CEP"/>
 </div>
