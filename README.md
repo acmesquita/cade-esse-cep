@@ -1,6 +1,8 @@
 # Cade esse CEP?
 
-Sistema para buscar, através de um CEP válido, o endereço e um mapa de como chegar
+Sistema para buscar, através de um CEP válido, o endereço e um mapa de como chegar.
+
+![Captura de tela de 2020-12-03 16-35-26](https://user-images.githubusercontent.com/15862643/101078933-94e6ac80-3585-11eb-8165-222ae7eccbca.png)
 
 ### Requisitos
 
