@@ -10,7 +10,6 @@ html, body, main {
   font-family: 'Montserrat', sans-serif;
   color: var(--primary);
   width: 100vw;
-  height: 100vh;
 }
 
 h1 {
@@ -18,6 +17,14 @@ h1 {
   font-weight: 600;
   font-size: 64px;
   line-height: 78px;
+}
+
+
+h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 h3 {
@@ -32,4 +39,9 @@ p {
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--lightblue);
+  opacity: 1; /* Firefox */
 }

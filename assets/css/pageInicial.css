@@ -2,7 +2,6 @@ div.page_inicial {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
 }
 
 div.page_inicial .header{
@@ -16,9 +15,13 @@ div.page_inicial .header .title{
   max-width: 659px;
 }
 
-div.page_inicial img{
+div.page_inicial img.background-image{
+  display: flex;
   max-width: min(100%, 85vw);
-  max-height: 70vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: 0 auto;
 }
 
@@ -43,11 +46,6 @@ div.page_inicial input{
   line-height: 37px;
 
   color: var(--blue);
-}
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: var(--lightblue);
-  opacity: 1; /* Firefox */
 }
 
 div.page_inicial button {

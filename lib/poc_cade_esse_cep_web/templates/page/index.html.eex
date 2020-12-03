@@ -9,11 +9,11 @@
       <%= form_for @conn, Routes.page_path(@conn, :show), [as: :page], fn f -> %>
         <%= text_input f, :zip, placeholder: "01000-000" %>
         <%= submit do %>
-          <img src="<%= Routes.static_path(@conn, "/images/right-arrow.svg") %>" alt="Seta para a direita"/>
+          <img src="<%= Routes.static_path(@conn, "/images/right-arrow-32.svg") %>" alt="Seta para a direita"/>
         <% end %>
       <% end %>
     </section>
   </div>
 
-  <img src="<%= Routes.static_path(@conn, "/images/backgroundImage.png") %>" alt="Logo do Cadê esse CEP"/>
+  <img src="<%= Routes.static_path(@conn, "/images/backgroundImage.png") %>" alt="Logo do Cadê esse CEP" class="background-image"/>
 </div>

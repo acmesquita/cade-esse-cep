@@ -1,5 +1,29 @@
-<h1>Result</h1>
+<div class="page_result">
+  <header>
+    <h2>
+      <a href="/">
+        Cadê esse CEP?
+      </a>
+    </h2>
+    <section class="form">
+      <%= form_for @conn, Routes.page_path(@conn, :show), [as: :page], fn f -> %>
+        <%= text_input f, :zip, placeholder: "01000-000", value: @zip %>
+        <%= submit do %>
+          <img src="<%= Routes.static_path(@conn, "/images/right-arrow-24.svg") %>" alt="Seta para a direita"/>
+        <% end %>
+      <% end %>
+    </section>
+  </header>
 
-<p>
-  <%= @zip %>
-</p>
+  <div class="body-result">
+    <div class="address">
+      <h3>Endereço</h3>
+      <p><%= @zip %></p>
+    </div>
+    <div class="show-map">
+      <h3>Como chegar</h3>
+      <div class="map"></div>
+    </div>
+  </div>
+  <img src="<%= Routes.static_path(@conn, "/images/backgroundImage.png") %>" alt="Logo do Cadê esse CEP" class="background-image"/>
+</div>
