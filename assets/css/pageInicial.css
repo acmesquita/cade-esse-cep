@@ -2,6 +2,7 @@ div.page_inicial {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 10;
 }
 
 div.page_inicial .header{
@@ -15,8 +16,9 @@ div.page_inicial .header .title{
   max-width: 659px;
 }
 
-div.page_inicial img.background-image{
+div.page_result img.background-image {
   display: flex;
+  opacity: 0.2;
   max-width: min(100%, 85vw);
   position: fixed;
   bottom: 0;
@@ -66,12 +68,15 @@ div.page_inicial button {
 
 @media (max-width: 425px) {
 
+  div.page_inicial {
+    z-index: 10;
+  }
+
   div.page_inicial .header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 20vh 0px;
-
+    margin: 15vh 0px 0px;
   }
 
   div.page_inicial h1 {
