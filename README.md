@@ -8,18 +8,18 @@ Sistema para buscar, através de um CEP válido, o endereço e um mapa de como c
 
 **Não Funcionais**
 
-- [ ]  A fonte de dados deve vir da [Brasil API](https://github.com/BrasilAPI/BrasilAPI)
-- [ ]  Utilizar o OpenStreetMap como base para o mapa
+- [x]  A fonte de dados deve vir da [Brasil API](https://github.com/BrasilAPI/BrasilAPI)
+- [x]  Utilizar o OpenStreetMap como base para o mapa
     - [ ]  Exemplo de consulta [link](https://www.openstreetmap.org/search?query=Rua%20Doutor%20Area%20Le%C3%A3o%2C%20Nossa%20Senhora%20das%20Gra%C3%A7as%2C%20Teresina%2C%20Piau%C3%AD#map=18/-5.10163/-42.80288)
 - [x]  O Projeto deve ser feito com Elixir e Phoenix
 
 **Funcionais**
 
 - [x]  O usuário deve poder digitar um CEP na caixa de texto
-- [ ]  O usuário deve receber um alerta caso exista algum erro na busca
-- [ ]  O usuário deve ser direcionado para a tela de informações caso tenha encontrado o endereço
-- [ ]  Deve ser exibido um mapa para o usuário com a localização encontrada
-- [ ]  Deve ser mostrado ao usuário o endereço encontrado segundo o protótipo
+- [x]  O usuário deve receber um alerta caso exista algum erro na busca
+- [x]  O usuário deve ser direcionado para a tela de informações caso tenha encontrado o endereço
+- [x]  Deve ser exibido um mapa para o usuário com a localização encontrada
+- [x]  Deve ser mostrado ao usuário o endereço encontrado segundo o protótipo
 
 ### Instalação do projeto
 
