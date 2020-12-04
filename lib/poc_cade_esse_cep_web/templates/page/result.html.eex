@@ -18,11 +18,13 @@
   <div class="body-result">
     <div class="address">
       <h3>Endereço</h3>
-      <p><%= @zip %></p>
+      <p id="result"><%= @result %></p>
+      <p id="lat" class="hide"><%= @lat %></p>
+      <p id="lon" class="hide"><%= @lon %></p>
     </div>
     <div class="show-map">
       <h3>Como chegar</h3>
-      <div class="map"></div>
+      <div class="map" id="mapid"></div>
     </div>
   </div>
   <img src="<%= Routes.static_path(@conn, "/images/backgroundImage.png") %>" alt="Logo do Cadê esse CEP" class="background-image"/>

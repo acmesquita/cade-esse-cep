@@ -45,3 +45,7 @@ p {
   color: var(--lightblue);
   opacity: 1; /* Firefox */
 }
+
+.hide {
+  display: none;
+}

@@ -30,6 +30,12 @@ div.page_inicial form{
   align-items: center;
 }
 
+div.page_inicial .form p {
+  color: var(--error);
+  font-size: 24px;
+  margin: 16px 26px;
+}
+
 div.page_inicial input{
   background: #EBF2FA;
   border-radius: 15px;

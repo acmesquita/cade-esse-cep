@@ -60,6 +60,8 @@ div.page_result div.body-result div.address{
 
 div.page_result div.body-result div.address p {
   margin: 15px 30px;
+  white-space: pre-wrap;
+  flex-wrap: wrap;
 }
 
 div.page_result img.background-image {
@@ -71,4 +73,9 @@ div.page_result img.background-image {
   left: 0;
   right: 0;
   margin: 0 auto;
+}
+
+div.page_result div#mapid {
+  width: 700px;
+  height: 400px;
 }
