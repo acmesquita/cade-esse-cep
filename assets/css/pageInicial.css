@@ -63,3 +63,48 @@ div.page_inicial button {
   border: none;
   cursor: pointer;
 }
+
+@media (max-width: 425px) {
+
+  div.page_inicial .header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20vh 0px;
+
+  }
+
+  div.page_inicial h1 {
+    text-align: center;
+    font-size: 50px;
+  }
+
+  div.page_inicial h3 {
+    text-align: center;
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  div.page_inicial form {
+    flex-direction: column;
+    margin-top: 10%;
+  }
+
+  div.page_inicial input{
+    margin: 5%;
+
+    max-width: 400px;
+  }
+
+  div.page_inicial button{
+    width: 200px;
+    height: 50px;
+  }
+
+  div.page_inicial img.background-image{
+    width: 100%;
+    height: 35vh;
+    object-fit: contain;
+  }
+  
+}

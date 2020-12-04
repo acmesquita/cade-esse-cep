@@ -1,5 +1,8 @@
 <div class="page_result">
   <header>
+    <a href="/" class="hide mobile">
+      <img src="<%= Routes.static_path(@conn, "/images/right-arrow-24.svg") %>" alt="Seta para a direita"/>
+    </a>
     <h2>
       <a href="/">
         Cadê esse CEP?

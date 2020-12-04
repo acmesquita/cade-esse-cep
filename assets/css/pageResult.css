@@ -79,3 +79,37 @@ div.page_result div#mapid {
   width: 700px;
   height: 400px;
 }
+
+@media (max-width: 425px) {
+
+  div.page_result header form {
+    display: none;
+  }
+ 
+  a.mobile {
+    display: block;
+    background-color: var(--secondary);
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  a.mobile img{
+    transform: rotate(180deg);
+  }
+
+  div.page_result header {
+    margin: 24px 20px 0;
+  }
+
+  div.page_result div.body-result {
+    display: flex;
+    margin: 50px 25px;
+    flex-direction: column;
+  }
+
+  div.page_result div#mapid {
+    width: 90vw;
+    height: 40vh;
+    margin-top: 24px;
+  }
+}

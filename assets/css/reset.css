@@ -49,3 +49,9 @@ p {
 .hide {
   display: none;
 }
+
+@media (min-width: 425px) {
+  html, body, main {
+    height: 100vh;
+  }
+}
