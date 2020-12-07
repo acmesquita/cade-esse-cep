@@ -1,7 +1,6 @@
 div.page_inicial {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   z-index: 10;
 }
 
@@ -16,15 +15,15 @@ div.page_inicial .header .title{
   max-width: 659px;
 }
 
-div.page_result img.background-image {
+div.page_inicial img.background-image {
   display: flex;
-  opacity: 0.2;
   max-width: min(100%, 85vw);
-  position: fixed;
+  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
+  z-index: 1;
 }
 
 div.page_inicial form{
@@ -70,13 +69,14 @@ div.page_inicial button {
 
   div.page_inicial {
     z-index: 10;
+    flex-direction: column-reverse;
   }
 
   div.page_inicial .header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 15vh 0px 0px;
+    margin: 0px;
   }
 
   div.page_inicial h1 {
@@ -97,8 +97,7 @@ div.page_inicial button {
 
   div.page_inicial input{
     margin: 5%;
-
-    max-width: 400px;
+    max-width: 320px;
   }
 
   div.page_inicial button{
@@ -108,7 +107,7 @@ div.page_inicial button {
 
   div.page_inicial img.background-image{
     width: 100%;
-    height: 35vh;
+    height: 16vh;
     object-fit: contain;
   }
   
