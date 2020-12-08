@@ -28,4 +28,4 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoiYWNtZXNxdWl0YSIsImEiOiJja2lhbW91dTAwcmt5MnlwZHRoeXZhcmM2In0.66_tVkyL8sXwj1MNTSuJmQ'
 }).addTo(mymap);
 
-const marker = L.marker([lat, lon]).addTo(mymap);
+L.marker([lat, lon]).addTo(mymap);
