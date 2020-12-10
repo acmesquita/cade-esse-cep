@@ -7,21 +7,22 @@ defmodule PocCadeEsseCepWeb.PageController do
 
   def show(conn, %{"page" => %{ "zip" => zip}}) do
     address = zip 
-      |> PocCadeEsseCepWeb.Normalize.normalizeZipCode
-      |> PocCadeEsseCepWeb.FindCepService.validateSizeZipCode
-      |> PocCadeEsseCepWeb.FindCepService.sendCEP
-
-    result = address
-      |> PocCadeEsseCepWeb.Normalize.normalizeAddress
+      |> PocCadeEsseCepWeb.FindCepService.findAddress
       
-    if Map.fetch(result, :ok) != nil do
-      latLon = address
+    {status, result} = address
+
+    IO.puts(status)
+
+    if status != :error  do
+      addressNormalize = result |> PocCadeEsseCepWeb.Normalize.normalizeAddress
+
+      latLon =  result
         |> PocCadeEsseCepWeb.FindCepService.formatAddress
         |> PocCadeEsseCepWeb.FindCepService.findLatLongFronAddress
 
-      render(conn, "result.html", result: result.ok, lat: latLon.lat, lon: latLon.lon, zip: zip)
+      render(conn, "result.html", result: addressNormalize.ok, lat: latLon.lat, lon: latLon.lon, zip: zip)
     else
-      render(conn, "index.html", result: result.error, zip: zip)
+      render(conn, "index.html", result: result, zip: zip)
     end
   end
 end

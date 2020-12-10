@@ -1,5 +1,12 @@
 defmodule PocCadeEsseCepWeb.FindCepService do
 
+  def findAddress(zip) do
+    zip
+      |> PocCadeEsseCepWeb.Normalize.normalizeZipCode
+      |> validateSizeZipCode
+      |> sendCEP
+  end
+
   def validateSizeZipCode(zip) do
     if String.length(zip) == 8 do
       zip
@@ -7,11 +14,21 @@ defmodule PocCadeEsseCepWeb.FindCepService do
       {:error, "Não é válido"}
     end
   end
+  
+  def sendCEP(zip) when is_tuple zip do
+    zip
+  end
 
-  def sendCEP(zip) do
-    HTTPotion.get("https://brasilapi.com.br/api/cep/v1/#{zip}").body
+  def sendCEP(zip) when is_bitstring zip do
+    result = HTTPotion.get("https://brasilapi.com.br/api/cep/v1/#{zip}").body
     |> Jason.decode
     |> elem(1)
+    
+    if result["errors"] != nil do
+      {:error, "Cep não localizado"}
+    else
+      {:ok, result}
+    end
   end
 
   def findLatLongFronAddress(address) do
@@ -30,11 +47,9 @@ defmodule PocCadeEsseCepWeb.FindCepService do
   end
 
   def formatAddress(body) do
-    unless body["errors"] do
-      body["state"] <> "+" <> body["street"] <> "+" <> body["neighborhood"]
-      |> String.replace(" ", "+")
-      |> PocCadeEsseCepWeb.Normalize.normalizeToUTF8
-    end
+    body["state"] <> "+" <> body["street"] <> "+" <> body["neighborhood"]
+    |> String.replace(" ", "+")
+    |> PocCadeEsseCepWeb.Normalize.normalizeToUTF8
   end
  
 end

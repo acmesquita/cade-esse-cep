@@ -5,11 +5,7 @@ defmodule PocCadeEsseCepWeb.Normalize do
   end
 
   def normalizeAddress(body) do
-    if body["errors"] do
-      %{:error => "Não foi encontrado o CEP"}
-    else
-      %{:ok => body["street"] <> ", " <> body["neighborhood"] <> "\n" <> body["city"] <> ", " <> body["state"] }
-    end
+    %{:ok => body["street"] <> ", " <> body["neighborhood"] <> "\n" <> body["city"] <> ", " <> body["state"] }
   end
 
   def normalizeToUTF8(text) do
