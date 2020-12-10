@@ -12,7 +12,7 @@
           <img src="<%= Routes.static_path(@conn, "/images/right-arrow-32.svg") %>" alt="Seta para a direita"/>
         <% end %>
       <% end %>
-      <p><%= @result %></p>
+      <p><%= @error %></p>
     </section>
   </div>
 

@@ -5,10 +5,16 @@ defmodule PocCadeEsseCepWeb.Normalize do
   end
 
   def normalizeAddress(body) do
-    %{:ok => body["street"] <> ", " <> body["neighborhood"] <> "\n" <> body["city"] <> ", " <> body["state"] }
+    body["street"] <> ", " <> body["neighborhood"] <> "\n" <> body["city"] <> ", " <> body["state"]
   end
 
-  def normalizeToUTF8(text) do
+  def normalizeAddressForSearch(body) do
+    body["state"] <> "+" <> body["street"] <> "+" <> body["neighborhood"]
+    |> String.replace(" ", "+")
+    |> normalizeToUTF8
+  end
+
+  defp normalizeToUTF8(text) do
     text
       |> String.replace("ç", "c")
       |> String.replace("Ç", "C")

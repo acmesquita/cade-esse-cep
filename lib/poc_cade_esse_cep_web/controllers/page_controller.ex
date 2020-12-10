@@ -2,27 +2,24 @@ defmodule PocCadeEsseCepWeb.PageController do
   use PocCadeEsseCepWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html", result: "")
+    render(conn, "index.html", error: "")
   end
 
   def show(conn, %{"page" => %{ "zip" => zip}}) do
-    address = zip 
-      |> PocCadeEsseCepWeb.FindCepService.findAddress
-      
+    address = PocCadeEsseCepWeb.FindCepService.findAddress(zip)
+
     {status, result} = address
 
-    IO.puts(status)
-
     if status != :error  do
-      addressNormalize = result |> PocCadeEsseCepWeb.Normalize.normalizeAddress
+      addressNormalize = PocCadeEsseCepWeb.Normalize.normalizeAddress(result)
 
       latLon =  result
-        |> PocCadeEsseCepWeb.FindCepService.formatAddress
-        |> PocCadeEsseCepWeb.FindCepService.findLatLongFronAddress
+        |> PocCadeEsseCepWeb.Normalize.normalizeAddressForSearch
+        |> PocCadeEsseCepWeb.FindCepService.findLatLongFromAddress
 
-      render(conn, "result.html", result: addressNormalize.ok, lat: latLon.lat, lon: latLon.lon, zip: zip)
+      render(conn, "result.html", result: addressNormalize, lat: latLon.lat, lon: latLon.lon, zip: zip)
     else
-      render(conn, "index.html", result: result, zip: zip)
+      render(conn, "index.html", error: result, zip: zip)
     end
   end
 end
