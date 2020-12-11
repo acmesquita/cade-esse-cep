@@ -1,7 +1,6 @@
 div.page_inicial {
   display: flex;
   flex-direction: column;
-  z-index: 10;
 }
 
 div.page_inicial .header{
@@ -9,6 +8,7 @@ div.page_inicial .header{
   align-items: center;
   justify-content: space-between;
   margin: 130px 70px 0px;
+  z-index: 10;
 }
 
 div.page_inicial .header .title{
