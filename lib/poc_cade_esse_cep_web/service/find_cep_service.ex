@@ -5,7 +5,7 @@ defmodule PocCadeEsseCepWeb.FindCepService do
       |> PocCadeEsseCepWeb.Normalize.normalize_zip_code
       |> PocCadeEsseCepWeb.Validades.validate_size_zip_code
       |> find_zip_code
-  end1
+  end
   
   defp find_zip_code(zip) when is_tuple zip do
     zip
