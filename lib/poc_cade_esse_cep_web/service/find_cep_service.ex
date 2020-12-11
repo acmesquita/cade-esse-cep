@@ -1,17 +1,17 @@
 defmodule PocCadeEsseCepWeb.FindCepService do
 
-  def findAddress(zip) do
+  def find_address(zip) do
     zip
-      |> PocCadeEsseCepWeb.Normalize.normalizeZipCode
-      |> PocCadeEsseCepWeb.Validades.validateSizeZipCode
-      |> findCEP
-  end
+      |> PocCadeEsseCepWeb.Normalize.normalize_zip_code
+      |> PocCadeEsseCepWeb.Validades.validate_size_zip_code
+      |> find_zip_code
+  end1
   
-  defp findCEP(zip) when is_tuple zip do
+  defp find_zip_code(zip) when is_tuple zip do
     zip
   end
 
-  defp findCEP(zip) when is_bitstring zip do
+  defp find_zip_code(zip) when is_bitstring zip do
     result = HTTPotion.get("https://brasilapi.com.br/api/cep/v1/#{zip}").body
     |> Jason.decode
     |> elem(1)
@@ -23,9 +23,9 @@ defmodule PocCadeEsseCepWeb.FindCepService do
     end
   end
 
-  def findLatLongFromAddress(address) do
+  def find_lat_long_from_address(address) do
     try do
-      url = generateURLNominatim(address)
+      url = generate_url_nominatim(address)
       body = HTTPotion.get(url, ["Content-type": "application/json; charset=UTF-8"]).body
         |> Jason.decode
         |> elem(1)
@@ -38,7 +38,7 @@ defmodule PocCadeEsseCepWeb.FindCepService do
     end
   end
 
-  defp generateURLNominatim(address) do
+  defp generate_url_nominatim(address) do
     "https://nominatim.openstreetmap.org/?addressdetails=1&q=#{address}&format=json&limit=1&email=catha.ana.1994@gmail.com&countrycodes=BR"
   end
  

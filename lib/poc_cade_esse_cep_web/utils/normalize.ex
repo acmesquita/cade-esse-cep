@@ -1,20 +1,21 @@
 defmodule PocCadeEsseCepWeb.Normalize do
+  @moduledoc "Um modulo para normalização de informações"
 
-  def normalizeZipCode(zip) do
-    zip |> String.replace( "-", "")
+  def normalize_zip_code(zip) do
+    zip |> String.replace("-", "")
   end
 
-  def normalizeAddress(body) do
+  def normalize_address(body) do
     body["street"] <> ", " <> body["neighborhood"] <> "\n" <> body["city"] <> ", " <> body["state"]
   end
 
-  def normalizeAddressForSearch(body) do
+  def normalize_address_for_search(body) do
     body["state"] <> "+" <> body["street"] <> "+" <> body["neighborhood"]
     |> String.replace(" ", "+")
-    |> normalizeToUTF8
+    |> normalize_to_utf8
   end
 
-  defp normalizeToUTF8(text) do
+  defp normalize_to_utf8(text) do
     text
       |> String.replace("ç", "c")
       |> String.replace("Ç", "C")
