@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "cypress": "cypress run --parallel",
+    "cypress:open": "cypress open",
+    "cypress:chorme": "cypress run -b chrome",
+    "cypress:verify": "cypress verify",
+    "cypress:run:record": "cypress run --record --key b595f1af-040d-4d4c-a965-864cc5397382"
+  },
+  "devDependencies": {
+    "cypress": "^6.2.1"
+  }
+}
