@@ -1,28 +1,25 @@
-defmodule PocCadeEsseCepWeb.FindCepService do
+defmodule PocCadeEsseCep.FindCepService do
   @moduledoc "Modulo de encontrar um CEP"
 
-  def find_address(zip) do
+  alias PocCadeEsseCep.{Normalize, Validades}
+
+  def call(zip) do
     zip
-      |> PocCadeEsseCepWeb.Normalize.normalize_zip_code
-      |> PocCadeEsseCepWeb.Validades.validate_size_zip_code
-      |> find_zip_code
+      |> Normalize.normalize_zip_code()
+      |> Validades.validate_size_zip_code()
+      |> find_zip_code()
   end
 
-  defp find_zip_code(error) when is_tuple error do
-    error
-  end
-
+  defp find_zip_code({:error, _reson} = error), do: error
   defp find_zip_code(zip) do
-    result = HTTPotion.get("https://brasilapi.com.br/api/cep/v1/#{zip}").body
+    HTTPotion.get("https://brasilapi.com.br/api/cep/v1/#{zip}").body
     |> Jason.decode
     |> elem(1)
-
-    if result["errors"] != nil do
-      {:error, "Cep não localizado"}
-    else
-      {:ok, result}
-    end
+    |> handle_zip_code()
   end
+
+  defp handle_zip_code(%{errors: _errors}), do: {:error, "Cep não localizado"}
+  defp handle_zip_code(result), do: {:ok, result}
 
   def find_lat_long_from_address(address) do
     try do

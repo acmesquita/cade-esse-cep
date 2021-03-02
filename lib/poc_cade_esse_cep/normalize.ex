@@ -1,4 +1,4 @@
-defmodule PocCadeEsseCepWeb.Normalize do
+defmodule PocCadeEsseCep.Normalize do
   @moduledoc "Um modulo para normalização de informações"
 
   def normalize_zip_code(zip) do

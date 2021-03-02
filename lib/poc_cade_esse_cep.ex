@@ -1,9 +1,5 @@
 defmodule PocCadeEsseCep do
-  @moduledoc """
-  PocCadeEsseCep keeps the contexts that define your domain
-  and business logic.
+  alias PocCadeEsseCep.FindCepService
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate find_zip_code(zip_code), to: FindCepService, as: :call
 end
